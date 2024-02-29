@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Suas informações</h1>
+    <table border="1">
+        <tr>
+            <th>Protocolo</th><td>{{ request.environ.SERVER_PROTOCOL }}</td>
+        </tr>
+        <tr>
+            <th>Método</th><td>{{ request.environ.REQUEST_METHOD }}</td>
+        </tr>
+            <th>Endereço IP</th><td>{{ request.environ.REMOTE_ADDR }}</td>
+        <tr>
+            <th>Porta Remota</th><td>{{ request.environ.REMOTE_PORT }}</td>
+        </tr>
+            <th>Navegador</th><td>{{ request.environ.HTTP_USER_AGENT }}</td>
+        <tr>    
+            <th>Cabeçalho</th><td>{{ request.environ.HTTP_ACCEPT }}</td>    
+        </tr>
+    </table>
+</body>
+</html>
+
