@@ -1,0 +1,13 @@
+Como configurar o Flask Tech no windows
+
+1 - Instale o Python, não se esqueça de marcar Add Python PATH na primeira tela do Instalador
+2 - Instale o Git-scm, na tela onde se pede para subescrever (override) o branch master por main, marque para usar o branch main.
+3 - Abra o git-bash na sua pasta de usuário, para verificar em qual diretório está, use o comando pwd.
+4 - Use o comando git clone para clonar o repositório.
+	git clone https://github.com/attiquetecnologia/flask_teach.git flask_teach
+5 - Entre dentro do diretório flask_teach com cd flask_teach
+6 - Crie um virtualenv
+	python -m venv .venv
+7 - Ative o virtualenv
+	source .venv/scripts/activate
+8 - 
