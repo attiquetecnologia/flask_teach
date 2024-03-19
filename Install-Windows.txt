@@ -6,8 +6,13 @@ Como configurar o Flask Tech no windows
 4 - Use o comando git clone para clonar o repositório.
 	git clone https://github.com/attiquetecnologia/flask_teach.git flask_teach
 5 - Entre dentro do diretório flask_teach com cd flask_teach
-6 - Crie um virtualenv
+6 - Atualize o pip
+	python -m pip install --upgrade pip
+7 - Crie um virtualenv
 	python -m venv .venv
 7 - Ative o virtualenv
 	source .venv/scripts/activate
-8 - 
+8 - Instale o framework flask
+	pip install flask
+9 - Execute o flask_teach com:
+	python app.py
