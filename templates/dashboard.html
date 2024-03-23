@@ -1,12 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Dashboard</h1>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Dashboard</h1>
+
+        <h1>Dados</h1>
+        <ul id="authors"></ul>
+
+        <script>
+            const ul = document.getElementById("authors");
+            const url = 'http://127.0.0.1:5000/api/randon_data';
+
+            function createNode(element) {
+                return document.createElement(element);
+            }
+
+            function append(parent, el) {
+                return parent.appendChild(el);
+            }
+
+            fetch(url)
+                .then((resp) => resp.json())
+                .then(function(data) {
+                let authors = data.results;
+                return authors.map(function(author) {
+                    console.log(author);
+                    let li = createNode('li');
+                    let img = createNode('img');
+                    let span = createNode('span');
+                    // img.src = author.picture.medium;
+                    span.innerHTML = `${author.nome} ${author.idade}`;
+                    // append(li, img);
+                    append(li, span);
+                    append(ul, li);
+                })
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+
+        </script>
+    </body>
 </html>

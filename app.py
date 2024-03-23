@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+
+cors = CORS(app)
+
 app.config["secret"] = "Random string"
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/meu_ip")
 def meu_ip():

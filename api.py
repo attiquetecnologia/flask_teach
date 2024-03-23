@@ -1,5 +1,6 @@
 from flask import Blueprint, current_app
 from flask import jsonify
+from flask_cors import cross_origin
 
 bp = Blueprint("api", __name__)
 
@@ -16,6 +17,9 @@ async def randon_data():
     with open(os.path.join(current_app.root_path, "database","random_data.json"), "r") as file:
         dados = file.read()
 
-    dados = json.dumps(dados) 
-    dados = dados.strip()
-    return dados
+    # Quando abrimos o arquivo .json encontramos na verdade uma string
+    # que precisa ser tratada removendo espaços em branco (strip) e linhas (\n)
+    dados = dados.strip().replace("\n", "")
+    dados = json.loads(dados) # depois precisa convertê-la em dicionarios python (loads)
+    # return dados
+    return {"results":dados}
