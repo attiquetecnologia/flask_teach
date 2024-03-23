@@ -7,11 +7,13 @@ app.config["secret"] = "Random string"
 def meu_ip():
     return render_template("meu_ip.html")
 
-
 @app.route("/")
-@app.route("/dashboard")
 def dashboard():
     return render_template("NiceAdmin/index.html")
+
+@app.route("/<string:page>")
+def page(page):
+    return page
 
 from api import bp
 app.register_blueprint(bp)
